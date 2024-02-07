@@ -1,0 +1,10 @@
+import static org.junit.jupiter.api.Assertions.*;
+
+class InvestmentsTest {
+
+    @org.junit.jupiter.api.Test
+    void invest1() {
+        assertEquals(1758, Investments.invest(1504, 0.043,4));
+    }
+
+}
