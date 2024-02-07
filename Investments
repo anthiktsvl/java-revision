@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class Investments {
+    public static void main(String[] args) {
+
+        int [] investments = new int[6];
+
+        System.out.println("Welcome to the Investments Program!");
+        Scanner in= new Scanner(System.in);
+        int choice = 0;
+        do{
+            System.out.println("Available options: ");
+            System.out.println("1. Fill");
+            System.out.println("2. Calculate");
+            System.out.println("Enter 1 or 2(or anything else to exit)");
+            choice= in.nextInt();
+            switch (choice){
+                case 1 : fillArrayInvestments(investments);break;
+                case 2: calculateAndPrintInvestments(investments, 5, 0.39);
+            }
+
+        }while (choice == 1 || choice == 2);
+    }
+//define a class= rename
+    public static double invest(int M, double R, int Y){
+        //ROI = M * (1 + (Y * R))
+        return M * (1 + (Y * R));
+
+    }
+
+    public static void fillArrayInvestments(int[] amounts){
+        Scanner in= new Scanner(System.in);
+        for (int i=0; i< amounts.length; i++){
+            do{
+                System.out.println("Please enter amount[" + (i +1) + "]" );
+                amounts[i]= in.nextInt();
+
+            } while(amounts[i] <=0);
+        }
+
+    }
+    public static void calculateAndPrintInvestments(int[] amounts, int Y, double R){
+        for (int i= 0; i< amounts.length ; i++) {
+            System.out.println(invest(amounts[i], R, Y));
+
+        }
+
+    }
+}
